@@ -1,0 +1,4 @@
+User-agent: *
+Sitemap:http://www.ifs73.fr/sitemap.xml
+Disallow: /img
+Disallow: /css
