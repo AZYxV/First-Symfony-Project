@@ -1,0 +1,14 @@
+{% extends "layout.html.twig" %}
+{% block title %}
+Admin | {{parent()}}
+{% endblock %}
+{% block body %}
+    <section class="container mt-4">
+        <div class="card p-3 w-50 mx-auto">
+            <h1 class="text-center">CREER UNE NOUVELLE CATEGORIE</h1>
+            {% include('Backend/Categorie/_form.html.twig') with {button_label: 'Créer'} %}
+        </div>
+
+    <a href="{{ path('app_categorie_index') }}">back to list</a>
+    </section>
+{% endblock %}
