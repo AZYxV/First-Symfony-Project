@@ -1,9 +1,8 @@
 {% extends "layout.html.twig" %}
 {% block title %}
-Admin | Categories
+Admin | {{ parent() }}
 {% endblock %}
 {% block body %}
-
 <section class="container mt-4">
     <h1 class="text-center">Admin des categorie</h1>
     <a href="{{ path('app_categorie_new') }}" class="btn btn-dark primary">Nouvelle catégorie</a>
@@ -14,7 +13,7 @@ Admin | Categories
                 <div class="card-body">
                     <h5 class="card-title">{{ categorie.id }}. {{ categorie.titre }}</h5>
                     <div class="form-check form-switch d-flex justify-content-center gap-2 mt-4">
-                        <input class="form-check-input filled-in" type="checkbox" role="switch" value="{{ categorie.id}}" {{ categorie.enable ? "checked"}}>
+                        <input class="form-check-input" type="checkbox" role="switch" value="{{ categorie.id}}" data-switch-active-tag {{ categorie.enable ? "checked"}}>
                         <label class="form-check-label">Actif</label>
                     </div>
                     <div class="d-flex justify-content-around gap-2 mt-4">
@@ -28,4 +27,14 @@ Admin | Categories
         {% endfor %}
     </div>
 </section>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('admin') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('admin') }}
 {% endblock %}
